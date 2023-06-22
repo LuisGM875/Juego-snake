@@ -2,7 +2,7 @@ class Juego {
   constructor(ancho, largo, cuerpotamano) {
     this.espacioJuego = document.createElement("canvas");
     this.ctx = this.espacioJuego.getContext("2d");
-    
+    //dibuja fondo de canva
     this.espacioJuego.width = ancho;
     this.espacioJuego.height = largo;
     this.espacioJuego.style.position = 'absolute';
@@ -11,7 +11,7 @@ class Juego {
     this.espacioJuego.style.backgroundImage = "url('juegobase/Imagenes/grass.jpg')";
     this.espacioJuego.style.backgroundSize = "cover";
     document.body.appendChild(this.espacioJuego);
-
+    //popiedades de la serpiente y manzana
     this.cuerpotamano = cuerpotamano;
     this.anchoSerpiente = ancho / cuerpotamano;
     this.largoSerpiente = largo / cuerpotamano;
@@ -20,7 +20,6 @@ class Juego {
     this.score = 0;
     this.tiempo;
     document.addEventListener("keydown", this.presionartecla.bind(this));
-
     }
   
     iniciar() {
@@ -63,11 +62,11 @@ class Juego {
       this.ctx.font = "15px Arial";
       this.ctx.fillStyle = "black";
       
-      const text = "Score: " + this.score;
-      const textX = this.espacioJuego.width - this.ctx.measureText(text).width - 10;
-      const textY = 20;
+      let text = "Score: " + this.score;
+      let x = 10;
+      let y = 20;
       
-      this.ctx.fillText(text, textX, textY);
+      this.ctx.fillText(text, x, y);
     }
   
     terminar() {
@@ -75,7 +74,7 @@ class Juego {
       this.ctx.font = "40px Arial";
       this.ctx.fillStyle = "red";
       this.ctx.fillText("Juego terminado ...", this.espacioJuego.width / 2 - 130, this.espacioJuego.height / 2);
-      const game = this; 
+      let game = this; 
       setTimeout(function() {
         document.body.removeChild(game.espacioJuego); 
       }, 4000);

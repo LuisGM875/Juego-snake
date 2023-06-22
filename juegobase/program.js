@@ -63,5 +63,5 @@ let fondo= document.createElement('img')
         document.body.removeChild(carga)
         canvas.iniciar()
         start.src = "juegobase/Imagenes/botonstart.png"
-      }, 5500);
+      }, 5000);
     });
